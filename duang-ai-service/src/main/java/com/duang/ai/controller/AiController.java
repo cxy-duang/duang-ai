@@ -48,7 +48,10 @@ public class AiController {
     private ChatClient vlChatClient;
 
     @RequestMapping(value = "/chat", method = RequestMethod.GET)
-    public String chat(String system, String user) {
+    public String chat(ChatInputDTO inputDTO) {
+        String system = inputDTO.getSystem();
+        String user = inputDTO.getUser();
+
         ChatClient.ChatClientRequestSpec prompt = chatClient.prompt();
         // 提示词
         if (StringUtils.hasText(system)) {
@@ -58,7 +61,10 @@ public class AiController {
     }
 
     @RequestMapping(value = "/chat/stream", method = RequestMethod.GET, produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-    public Flux<String> chatStream(String system, String user) {
+    public Flux<String> chatStream(ChatInputDTO inputDTO) {
+        String system = inputDTO.getSystem();
+        String user = inputDTO.getUser();
+
         ChatClient.ChatClientRequestSpec prompt = chatClient.prompt();
         // 提示词
         if (StringUtils.hasText(system)) {
