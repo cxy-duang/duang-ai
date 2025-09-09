@@ -21,6 +21,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.MediaType;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -47,8 +48,8 @@ public class AiController {
     @Qualifier("vl")
     private ChatClient vlChatClient;
 
-    @RequestMapping(value = "/chat", method = RequestMethod.GET)
-    public String chat(ChatInputDTO inputDTO) {
+    @RequestMapping(value = "/chat", method = RequestMethod.POST)
+    public String chat(@RequestBody ChatInputDTO inputDTO) {
         String system = inputDTO.getSystem();
         String user = inputDTO.getUser();
 
@@ -60,8 +61,8 @@ public class AiController {
         return prompt.user(user).call().content();
     }
 
-    @RequestMapping(value = "/chat/stream", method = RequestMethod.GET, produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-    public Flux<String> chatStream(ChatInputDTO inputDTO) {
+    @RequestMapping(value = "/chat/stream", method = RequestMethod.POST, produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    public Flux<String> chatStream(@RequestBody ChatInputDTO inputDTO) {
         String system = inputDTO.getSystem();
         String user = inputDTO.getUser();
 
