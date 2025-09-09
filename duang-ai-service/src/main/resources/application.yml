@@ -31,9 +31,9 @@ spring:
 #      options:
 #        model: qwen-vl-max
 
-vl:
-  api-key:
-  base-url: https://dashscope.aliyuncs.com/compatible-mode
-  chat:
-    options:
-      model: qwen-vl-max
+#vl:
+#  api-key:
+#  base-url: https://dashscope.aliyuncs.com/compatible-mode
+#  chat:
+#    options:
+#      model: qwen-vl-max

@@ -44,7 +44,7 @@ public class AiController {
     @Autowired
     private ChatClient chatClient;
 
-    @Autowired
+    @Autowired(required = false)
     @Qualifier("vl")
     private ChatClient vlChatClient;
 
