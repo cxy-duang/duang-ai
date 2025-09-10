@@ -2,6 +2,8 @@
 import api from '@/api/ai.js'
 import {computed, reactive, ref} from 'vue'
 import MarkdownIt from 'markdown-it'
+import {MdEditor} from 'md-editor-v3';
+import 'md-editor-v3/lib/style.css';
 
 const form = reactive({
   data: {
@@ -41,10 +43,10 @@ const html = computed(() => {
     <div>
       <el-form :model="form.data" label-width="auto">
         <el-form-item label="提示词">
-          <el-input v-model="form.data.system" type="textarea"/>
+          <md-editor v-model="form.data.system" style="height: 300px"/>
         </el-form-item>
         <el-form-item label="用户输入">
-          <el-input v-model="form.data.user" type="textarea"/>
+          <md-editor v-model="form.data.user" style="height: 300px"/>
         </el-form-item>
       </el-form>
       <el-button @click="chat" :loading="loading" type="primary">Chat</el-button>
