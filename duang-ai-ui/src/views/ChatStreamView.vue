@@ -26,6 +26,7 @@ const form = reactive({
 })
 
 const formRef = ref()
+const scrollContainerRef = ref()
 
 const result = ref('')
 
@@ -40,6 +41,10 @@ const chat = () => {
     loading.value = true
     api.chatStream(data, c => {
       result.value += c
+
+      // 文字超出时滚动条随动
+      const container = scrollContainerRef.value
+      container.scrollTop = container.scrollHeight
     }).finally(() => {
       loading.value = false
     })
@@ -68,7 +73,7 @@ const html = computed(() => {
       </el-form>
       <el-button @click="chat" :loading="loading" type="primary">Chat</el-button>
     </div>
-    <div>
+    <div ref="scrollContainerRef" class="result-container">
       <div v-html="html"/>
     </div>
   </div>
@@ -79,5 +84,10 @@ const html = computed(() => {
   .container {
     min-height: 100vh;
   }
+}
+
+.result-container{
+  max-height: 500px;
+  overflow: auto;
 }
 </style>
