@@ -25,17 +25,6 @@ const chat = () => {
   }).finally(() => {
     loading.value = false
   })
-
-  // loading.value = true
-  // api.chatStream(data, (data) => {
-  //   console.log('chatStream data', data)
-  //   result.value += data
-  //   // // 滚动条随动
-  //   // const container = this.$refs.scrollContainer
-  //   // container.scrollTop = container.scrollHeight
-  // }, () => {
-  //   loading.value = false
-  // })
 }
 
 const editor = new MarkdownIt({
