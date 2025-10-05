@@ -1,4 +1,4 @@
-package com.itrade.ai.config;
+package com.duang.ai.config;
 
 import lombok.Data;
 
