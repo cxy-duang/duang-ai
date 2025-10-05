@@ -1,4 +1,15 @@
 export default {
+  chat(data) {
+    return fetch('/api/ai/chat', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    }).then(res => {
+      return res.text()
+    })
+  },
   chatStream(data, chunkFunc) {
     const decoder = new TextDecoder('utf-8')
 
