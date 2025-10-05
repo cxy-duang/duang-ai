@@ -85,5 +85,13 @@ export default {
         reject(error)
       })
     })
-  }
+  },
+  vl(data) {
+    return fetch('/api/ai/vl/chat', {
+      method: 'post',
+      body: data
+    }).then(res => {
+      return res.json()
+    })
+  },
 }

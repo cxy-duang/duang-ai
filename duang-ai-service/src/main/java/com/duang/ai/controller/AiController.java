@@ -39,8 +39,6 @@ import java.util.Objects;
 @RequestMapping("/ai")
 public class AiController {
 
-    public static final String PDF = "pdf";
-
     @Autowired
     private ChatClient chatClient;
 
@@ -81,7 +79,6 @@ public class AiController {
         String user = inputDTO.getUser();
 
         List<MultipartFile> files = inputDTO.getFiles();
-
 
         List<Media> imageMediaList = new ArrayList<>();
 
