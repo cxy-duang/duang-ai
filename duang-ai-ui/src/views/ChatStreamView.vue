@@ -79,7 +79,7 @@ const html = computed(() => {
   </div>
 </template>
 
-<style>
+<style scoped>
 @media (min-width: 1024px) {
   .container {
     min-height: 100vh;
