@@ -49,7 +49,8 @@
         </dependencyManagement>
     ```
 
-## 坑
+## 注意点
 
 1. 流式输出`stream`必须包装一个类`ChunkDTO`否则前端无法正常显示
 2. 配置文件`base-url`不需要填写`/v1`或`/v1/chat/completions`，因为`org.springframework.ai.model.openai.autoconfigure.OpenAiChatProperties`默认`DEFAULT_COMPLETIONS_PATH`为`/v1/chat/completions`
+3. 流式输出前端需要使用`SSE`去接受，并处理分割缓冲区内容
