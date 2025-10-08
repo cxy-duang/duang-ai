@@ -87,7 +87,7 @@ const html = computed(() => {
 }
 
 .result-container{
-  max-height: 500px;
+  max-height: 300px;
   overflow: auto;
 }
 </style>
