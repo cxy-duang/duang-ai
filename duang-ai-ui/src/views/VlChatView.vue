@@ -106,7 +106,7 @@ const upload = ({type, files}) => {
         :action="''"
         :limit="1"
         :multiple="true"
-        :accept="'.png, .pdf'"
+        :accept="'.png, .jpg, .pdf'"
         :on-change="(file) => {
           upload({type: 'change', files: [file.raw]})
         }"
