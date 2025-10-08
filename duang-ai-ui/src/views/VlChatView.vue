@@ -63,8 +63,9 @@ const chat = (files) => {
 
     loading.value = true
     const p = api.vl(data)
-    p.then(data => {
-      Object.assign(result, data)
+    p.then(res => {
+      console.log('返回结果', res)
+      Object.assign(result, res)
     }).finally(() => {
       loading.value = false
     })
